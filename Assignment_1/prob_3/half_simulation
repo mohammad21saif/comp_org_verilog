@@ -1,0 +1,80 @@
+#! /usr/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x5dc97e99d5b0 .scope module, "test_half" "test_half" 2 1;
+ .timescale 0 0;
+v0x5dc97e9c37d0_0 .var "A", 0 0;
+v0x5dc97e9c38e0_0 .var "B", 0 0;
+v0x5dc97e9c39f0_0 .net "borrow", 0 0, L_0x5dc97e9c3f50;  1 drivers
+v0x5dc97e9c3a90_0 .net "carry", 0 0, L_0x5dc97e9c3db0;  1 drivers
+v0x5dc97e9c3b30_0 .net "difference", 0 0, L_0x5dc97e9c3e70;  1 drivers
+v0x5dc97e9c3c20_0 .net "sum", 0 0, L_0x5dc97e9c3cf0;  1 drivers
+S_0x5dc97e9aef30 .scope module, "HA" "half_adder" 2 6, 3 1 0, S_0x5dc97e99d5b0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /OUTPUT 1 "sum";
+    .port_info 3 /OUTPUT 1 "carry";
+L_0x5dc97e9c3cf0 .functor XOR 1, v0x5dc97e9c37d0_0, v0x5dc97e9c38e0_0, C4<0>, C4<0>;
+L_0x5dc97e9c3db0 .functor AND 1, v0x5dc97e9c37d0_0, v0x5dc97e9c38e0_0, C4<1>, C4<1>;
+v0x5dc97e9af110_0 .net "A", 0 0, v0x5dc97e9c37d0_0;  1 drivers
+v0x5dc97e9c2ef0_0 .net "B", 0 0, v0x5dc97e9c38e0_0;  1 drivers
+v0x5dc97e9c2fb0_0 .net "carry", 0 0, L_0x5dc97e9c3db0;  alias, 1 drivers
+v0x5dc97e9c3050_0 .net "sum", 0 0, L_0x5dc97e9c3cf0;  alias, 1 drivers
+S_0x5dc97e9c3190 .scope module, "HS" "half_subtractor" 2 7, 4 1 0, S_0x5dc97e99d5b0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /OUTPUT 1 "difference";
+    .port_info 3 /OUTPUT 1 "borrow";
+L_0x5dc97e9c3e70 .functor XOR 1, v0x5dc97e9c37d0_0, v0x5dc97e9c38e0_0, C4<0>, C4<0>;
+L_0x5dc97e9c3ee0 .functor NOT 1, v0x5dc97e9c37d0_0, C4<0>, C4<0>, C4<0>;
+L_0x5dc97e9c3f50 .functor AND 1, L_0x5dc97e9c3ee0, v0x5dc97e9c38e0_0, C4<1>, C4<1>;
+v0x5dc97e9c3390_0 .net "A", 0 0, v0x5dc97e9c37d0_0;  alias, 1 drivers
+v0x5dc97e9c3430_0 .net "B", 0 0, v0x5dc97e9c38e0_0;  alias, 1 drivers
+v0x5dc97e9c34d0_0 .net *"_ivl_2", 0 0, L_0x5dc97e9c3ee0;  1 drivers
+v0x5dc97e9c35a0_0 .net "borrow", 0 0, L_0x5dc97e9c3f50;  alias, 1 drivers
+v0x5dc97e9c3640_0 .net "difference", 0 0, L_0x5dc97e9c3e70;  alias, 1 drivers
+    .scope S_0x5dc97e99d5b0;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5dc97e9c37d0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5dc97e9c38e0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5dc97e9c37d0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5dc97e9c38e0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5dc97e9c37d0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5dc97e9c38e0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5dc97e9c37d0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5dc97e9c38e0_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 14 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_0x5dc97e99d5b0;
+T_1 ;
+    %vpi_call 2 18 "$monitor", "A=%b, B=%b, sum=%b, carry=%b, difference=%b, borrow=%b", v0x5dc97e9c37d0_0, v0x5dc97e9c38e0_0, v0x5dc97e9c3c20_0, v0x5dc97e9c3a90_0, v0x5dc97e9c3b30_0, v0x5dc97e9c39f0_0 {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "testbench_half.v";
+    "half_adder.v";
+    "half_subtractor.v";
