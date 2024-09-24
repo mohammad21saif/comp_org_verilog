@@ -21,7 +21,7 @@ module test_4bit_comparator;
         $display("Time | A | B | eq | gt | lt");
         $display("-----------------------------");
 
-        A = 4'b0001; B = 4'b0000; #10;
+        A = 4'b0001; B = 4'b1000; #10;
         $display("%4d | %b | %b | %b | %b | %b", $time, A, B, eq, gt, lt);
 
         A = 4'b0001; B = 4'b0001; #10;
