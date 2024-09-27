@@ -18,7 +18,7 @@ module tb_mux_8to1;
         $monitor("Time = %0t | in = %b | sel = %b | out = %b", $time, in, sel, out);
         
         // Test case 1: sel = 3'b000, in[0] should be selected
-        in = 8'b10101010;
+        in = 8'b11110000;
         sel = 3'b000;
         #10;
         
