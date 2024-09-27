@@ -1,0 +1,39 @@
+$date
+	Fri Sep 27 18:27:20 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module test_pencoder $end
+$var wire 1 ! valid $end
+$var wire 3 " out [2:0] $end
+$var reg 8 # in [7:0] $end
+$scope module uut $end
+$var wire 8 $ in [7:0] $end
+$var reg 3 % out [2:0] $end
+$var reg 1 ! valid $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b111 %
+b10101011 $
+b10101011 #
+b111 "
+1!
+$end
+#10
+b100 "
+b100 %
+b10001 #
+b10001 $
+#20
+b111 "
+b111 %
+b11111111 #
+b11111111 $
+#30
