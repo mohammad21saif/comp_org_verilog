@@ -1,0 +1,58 @@
+$date
+	Fri Sep 27 21:21:35 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module test_sr $end
+$var wire 1 ! Q_ $end
+$var wire 1 " Q $end
+$var reg 1 # EN $end
+$var reg 1 $ R $end
+$var reg 1 % RESET $end
+$var reg 1 & S $end
+$scope module sr $end
+$var wire 1 # EN $end
+$var wire 1 $ R $end
+$var wire 1 % RESET $end
+$var wire 1 & S $end
+$var reg 1 " Q $end
+$var reg 1 ! Q_ $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0&
+1%
+0$
+0#
+0"
+1!
+$end
+#10
+1#
+0%
+#20
+1$
+1&
+#30
+0$
+0&
+#40
+1&
+#50
+1$
+0&
+#60
+0$
+1&
+0#
+#70
+1$
+0&
+1#
+#100
